@@ -17,14 +17,14 @@ exports.readCliente = (req, res) => {
 }
 
 exports.deleteCliente = (req, res) => {
-    Cliente.findOneAndRemove({ _id: req.params.id }, (err, data) => {
+    Cliente.remove({ _id: req.params.id }, (err, data) => {
         if (err) res.json({ error: err });
         else res.json(data);
     });
 }
 
 exports.updateCliente = (req, res) => {
-    Cliente.findOneAndUpdate(
+    Cliente.update(
         { _id: req.params.id },
         { $set: { nombre: req.body.nombre, apellidos: req.body.apellidos } }, 
         (err, data) => {
@@ -60,14 +60,14 @@ exports.readPelicula = (req, res) => {
 }
 
 exports.deletePelicula = (req, res) => {
-    Pelicula.findOneAndRemove({ _id: req.params.id }, (err, data) => {
+    Pelicula.remove({ _id: req.params.id }, (err, data) => {
         if (err) res.json({ error: err });
         else res.json(data);
     });
 }
 
 exports.updatePelicula = (req, res) => {
-    Pelicula.findOneAndUpdate(
+    Pelicula.update(
         { _id: req.params.id },
         { $set: { nombre: req.body.nombre, precio: req.body.precio, genero: req.body.genero, calificacion: req.body.calificacion } }, 
         (err, data) => {

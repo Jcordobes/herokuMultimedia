@@ -1,26 +1,34 @@
 {
-  "name": "tiendabackend",
+  "name": "tiendabackend-master",
   "version": "1.0.0",
-  "description": "Backend of a Fullstack webapp",
-  "author": "jamj2000 at google dot com",
-  "license": "GPL",
+  "description": "> **ESTE MINITUTORIAL ES UNA VERSIÓN RESUMIDA DEL BACKEND DE ESTA APLICACIÓN** >  > A tener en cuenta: > > - Mucho del código que aparece en este minitutorial está simplificado con fines didácticos. > - Para ver todo el código, revisar el código fuente de este repositorio. > - **La parte frontend de esta aplicación puede verse en [tiendafrontend](https://github.com/jamj2000/tiendafrontend)**",
   "main": "server.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.js"
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jcordobes/herokuMultimedia.git"
   },
   "keywords": [
     "webapp",
     "backend",
     "fullstack"
   ],
-  "devDependencies": {
-    "nodemon": "^2.0.2"
+  "author": "jcordobes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jcordobes/herokuMultimedia/issues"
   },
-  "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "mongoose": "^5.9.1"
-  }
+  "homepage": "https://github.com/Jcordobes/herokuMultimedia#readme"
 }
