@@ -17,16 +17,16 @@ exports.readCliente = (req, res) => {
 }
 
 exports.deleteCliente = (req, res) => {
-    Cliente.remove({ _id: req.params.id }, (err, data) => {
+    Cliente.findOneAndRemove({ _id: req.params.id }, (err, data) => {
         if (err) res.json({ error: err });
         else res.json(data);
     });
 }
 
 exports.updateCliente = (req, res) => {
-    Cliente.update(
+    Cliente.findOneAndUpdate(
         { _id: req.params.id },
-        { $set: { nombre: req.body.nombre, apellidos: req.body.apellidos } }, 
+        { $set: { nombre: req.body.nombre, apellidos: req.body.apellidos, edad: req.body.edad, usuario: req.body.usuario } }, 
         (err, data) => {
             if (err) res.json({ error: err });
             else res.json(data);
@@ -35,7 +35,7 @@ exports.updateCliente = (req, res) => {
 }
 
 exports.createCliente = (req, res) => {
-    const cliente = new Cliente({ nombre: req.body.nombre, apellidos: req.body.apellidos });
+    const cliente = new Cliente({ nombre: req.body.nombre, apellidos: req.body.apellidos, edad: req.body.edad, usuario: req.body.usuario });
     cliente.save((err, data) => {
         if (err) res.json({ error: err });
         else res.json(data);
@@ -60,14 +60,14 @@ exports.readPelicula = (req, res) => {
 }
 
 exports.deletePelicula = (req, res) => {
-    Pelicula.remove({ _id: req.params.id }, (err, data) => {
+    Pelicula.findOneAndRemove({ _id: req.params.id }, (err, data) => {
         if (err) res.json({ error: err });
         else res.json(data);
     });
 }
 
 exports.updatePelicula = (req, res) => {
-    Pelicula.update(
+    Pelicula.findOneAndUpdate(
         { _id: req.params.id },
         { $set: { nombre: req.body.nombre, precio: req.body.precio, genero: req.body.genero, calificacion: req.body.calificacion } }, 
         (err, data) => {
