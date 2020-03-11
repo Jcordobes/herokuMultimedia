@@ -5,7 +5,7 @@ const Cliente = mongoose.model('Cliente',
 );
 
 const Pelicula = mongoose.model('Pelicula',
-  new mongoose.Schema({ nombre: String, genero: String, calificacion: Number })
+  new mongoose.Schema({ nombre: String, genero: String, calificacion: String })
 );
 
 module.exports = {
