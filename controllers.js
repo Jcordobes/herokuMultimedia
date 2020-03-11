@@ -1,5 +1,6 @@
 const { Cliente, Pelicula } = require("./models.js");
 
+
 // ------- CLIENTES
 
 exports.readClientes = (req, res) => {
@@ -26,7 +27,7 @@ exports.deleteCliente = (req, res) => {
 exports.updateCliente = (req, res) => {
     Cliente.findOneAndUpdate(
         { _id: req.params.id },
-        { $set: { nombre: req.body.nombre, apellidos: req.body.apellidos, edad: req.body.edad, usuario: req.body.usuario } }, 
+        { $set: { nombre: req.body.nombre, apellidos: req.body.apellidos, telefono: req.body.telefono  } }, 
         (err, data) => {
             if (err) res.json({ error: err });
             else res.json(data);
@@ -35,7 +36,7 @@ exports.updateCliente = (req, res) => {
 }
 
 exports.createCliente = (req, res) => {
-    const cliente = new Cliente({ nombre: req.body.nombre, apellidos: req.body.apellidos, edad: req.body.edad, usuario: req.body.usuario });
+    const cliente = new Cliente({ nombre: req.body.nombre, apellidos: req.body.apellidos, telefono: req.body.telefono });
     cliente.save((err, data) => {
         if (err) res.json({ error: err });
         else res.json(data);
@@ -69,7 +70,7 @@ exports.deletePelicula = (req, res) => {
 exports.updatePelicula = (req, res) => {
     Pelicula.findOneAndUpdate(
         { _id: req.params.id },
-        { $set: { nombre: req.body.nombre, precio: req.body.precio, genero: req.body.genero, calificacion: req.body.calificacion } }, 
+        { $set: { nombre: req.body.nombre, genero: req.body.genero, calificacion: req.body.calificacion } }, 
         (err, data) => {
             if (err) res.json({ error: err });
             else res.json(data);
@@ -78,7 +79,7 @@ exports.updatePelicula = (req, res) => {
 }
 
 exports.createPelicula = (req, res) => {
-    const pelicula = new Pelicula({ nombre: req.body.nombre, precio: req.body.precio, genero: req.body.genero, calificacion: req.body.calificacion });
+    const pelicula = new Pelicula({ nombre: req.body.nombre, genero: req.body.genero, calificacion: req.body.calificacion });
     pelicula.save((err, data) => {
         if (err) res.json({ error: err });
         else res.json(data);
