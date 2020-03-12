@@ -27,7 +27,7 @@ exports.deleteCliente = (req, res) => {
 exports.updateCliente = (req, res) => {
     Cliente.findOneAndUpdate(
         { _id: req.params.id },
-        { $set: { nombre: req.body.nombre, apellidos: req.body.apellidos, telefono: req.body.telefono  } }, 
+        { $set: { nombre: req.body.nombre, apellidos: req.body.apellidos, telefono: req.body.telefono, usuario: req.body.usuario  } }, 
         (err, data) => {
             if (err) res.json({ error: err });
             else res.json(data);
@@ -36,7 +36,7 @@ exports.updateCliente = (req, res) => {
 }
 
 exports.createCliente = (req, res) => {
-    const cliente = new Cliente({ nombre: req.body.nombre, apellidos: req.body.apellidos, telefono: req.body.telefono });
+    const cliente = new Cliente({ nombre: req.body.nombre, apellidos: req.body.apellidos, telefono: req.body.telefono, usuario: req.body.usuario });
     cliente.save((err, data) => {
         if (err) res.json({ error: err });
         else res.json(data);
@@ -70,7 +70,7 @@ exports.deletePelicula = (req, res) => {
 exports.updatePelicula = (req, res) => {
     Pelicula.findOneAndUpdate(
         { _id: req.params.id },
-        { $set: { nombre: req.body.nombre, genero: req.body.genero, calificacion: req.body.calificacion } }, 
+        { $set: { nombre: req.body.nombre, genero: req.body.genero, calificacion: req.body.calificacion, director: req.body.director } }, 
         (err, data) => {
             if (err) res.json({ error: err });
             else res.json(data);
@@ -79,7 +79,7 @@ exports.updatePelicula = (req, res) => {
 }
 
 exports.createPelicula = (req, res) => {
-    const pelicula = new Pelicula({ nombre: req.body.nombre, genero: req.body.genero, calificacion: req.body.calificacion });
+    const pelicula = new Pelicula({ nombre: req.body.nombre, genero: req.body.genero, calificacion: req.body.calificacion, director: req.body.director });
     pelicula.save((err, data) => {
         if (err) res.json({ error: err });
         else res.json(data);
